@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Student_Management_Project</class>
- <widget class="QWidget" name="Student_Management_Project">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -32,7 +32,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -124,9 +124,6 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="lineEdit_gender"/>
-        </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_bdate">
           <property name="font">
@@ -162,7 +159,7 @@
          </widget>
         </item>
         <item row="5" column="0">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="pushButton_update">
           <property name="font">
            <font>
             <pointsize>10</pointsize>
@@ -183,6 +180,30 @@
           <property name="text">
            <string>Submit and Add Record</string>
           </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="comboBox_gender">
+          <item>
+           <property name="text">
+            <string>Select Gender</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Others</string>
+           </property>
+          </item>
          </widget>
         </item>
        </layout>
@@ -228,10 +249,10 @@
        </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="listWidget"/>
+       <widget class="QListWidget" name="listWidget_studentlist"/>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="pushButton_delete">
         <property name="font">
          <font>
           <pointsize>10</pointsize>
