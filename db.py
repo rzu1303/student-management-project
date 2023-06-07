@@ -40,18 +40,6 @@ def db_init():
         session.execute(query)
         db.commit()
 
-#testing 
-# def student_create():
-#     with db.cursor() as session:
-#         query = """INSERT INTO student (name, mobile, email, gender, dob)
-#             VALUES ('{}', '{}', '{}', '{}', '{}');
-#             """.format("ass", "011", "hshs", "female", "12-22-31")
-#         # print(query)
-#         session.execute(query)
-#         db.commit()
-
-
-
 def student_create(name = None, mobile = None, email=None, gender= None, dob = None):
     with db.cursor() as session:
         query = """INSERT INTO student (name, mobile, email, gender, dob)
@@ -65,7 +53,6 @@ def student_read():
     with db.cursor() as session:
         session.execute('SELECT * FROM public.student;')
         results = session.fetchall()
-    # pprint(results)
     return results       
 
 def student_update(row_id = None, name = None, mobile = None, email=None, gender= None, dob = None):
@@ -73,9 +60,6 @@ def student_update(row_id = None, name = None, mobile = None, email=None, gender
         session.execute("""UPDATE public.student SET name='{}', mobile='{}', email='{}', 
                     gender='{}', dob='{}' WHERE id = {};""".format(name, mobile, email, gender, dob, row_id))
         db.commit()
-        # print(row_id)
-        # print(name)
-
     return True
 
 def student_delete(row_id):
@@ -90,40 +74,15 @@ if __name__=="__main__":
     db_init()
     from datetime import datetime
     from pprint import pprint
-    # student_create()
-    # student_read()
-    # event_update()
-    # event_delete()
 
     with db.cursor() as session:
-        #####################
         query = """INSERT INTO student (name, mobile, email, gender, dob)
             VALUES ('{}', '{}', '{}', '{}', '{}');
             """.format("x3", "test 1", "Test 3", "female", "12-22-3100")
-        # print(query)
+        
         session.execute(query)
         db.commit()
 
-        # session.execute('SELECT * FROM public.student;')
-        # results = session.fetchall()
-        # # pprint(results)
-
-        # session.execute("UPDATE public.student SET name ='hi hi hi hi' WHERE id = 3 ;")
-        # db.commit()
-
-        # session.execute('SELECT * FROM public.student;')
-        # results = session.fetchall()
-        # pprint(results)
-
-        # session.execute("DELETE FROM public.student WHERE id = 3 ;")
-        # db.commit()
-
-        # session.execute('SELECT * FROM public.student;')
-        # results = session.fetchall()
-        # pprint(results)
-
-
-        #####################
         session.execute('SELECT * FROM public.student;')
         results = session.fetchall()
 
@@ -142,11 +101,6 @@ if __name__=="__main__":
                                 'dob': row[5]
                             })
 
-        # pprint(all_student)
-
-
         for item in all_student:
-            # pprint(item)
             for item1 in all_student[item]:
-                    # print(item1['name'])
                     pass

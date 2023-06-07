@@ -38,20 +38,12 @@ class Main(Ui_MainWindow):
             'dob': self.dateEdit_bdate.date()
         }
 
-        # student_list = self.students.get(id, [])
-        # print(student_list)
-
-        # student_number = self.listWidget_studentlist.setCurrentRow()
-
         if db.student_create(name=student['name'],
                           mobile=student['mobile'],
                           email=student['email'],
                           gender=student['gender'],
                           dob = student['dob'].toString('dd.MM.yyyy')):
-            # print("db.st_create done.next stud_read")
             self.students = self.student_read()
-            # print("stu_read  done.next populate_list")
-
 
         self.populate_list()
 
@@ -69,7 +61,6 @@ class Main(Ui_MainWindow):
     def populate_form(self):
         self.clear_form()
         student_number = self.listWidget_studentlist.currentRow()
-        # print(student_number)
         if student_number == -1:
             return
         
@@ -111,13 +102,11 @@ class Main(Ui_MainWindow):
                   'dob': QtCore.QTime.fromString(str(row[5]), 'dd.MM.yyyy')
                 }
             )
-        # pprint(results)
 
         return all_students
 
 
     def delete_student(self):
-        # id = self.students[id]
         row = self.listWidget_studentlist.currentRow() - 1
         del(self.students[row])
 
@@ -129,7 +118,6 @@ class Main(Ui_MainWindow):
 
     def update_student(self):
         row = self.listWidget_studentlist.currentRow()
-        # print(row)
         n_student = {
             'name': self.lineEdit_name.text(),
             'mobile': self.lineEdit_mobile.text(),
@@ -137,7 +125,6 @@ class Main(Ui_MainWindow):
             'gender': self.comboBox_gender.currentText(),
             'dob': self.dateEdit_bdate.date()
         }
-        # print(n_student['name'])
         if db.student_update(row_id = self.students[row][0],
                           name=n_student['name'],
                           mobile=n_student['mobile'],
